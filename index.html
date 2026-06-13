@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación - Cumpleaños de Fiorella Díaz</title>
+  
+  <!-- SEO & Social Sharing Tags (Optimize for WhatsApp) -->
+  <meta name="description" content="Acompáñame a celebrar este día especial el 18 de Julio. ¡Confirma tu asistencia aquí!">
+  <meta property="og:title" content="Invitación: Cumpleaños de Fiorella Díaz">
+  <meta property="og:description" content="Te invito a celebrar una ocasión muy especial. Revisa los detalles y confirma tu asistencia.">
+  <meta property="og:type" content="website">
+  <!-- Dynamic Preview Color -->
+  <meta name="theme-color" content="#0d1b2a">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Background Interactive Particles Canvas -->
+  <canvas id="particles-canvas"></canvas>
+
+  <div class="scroll-container">
+    
+    <!-- HEADER SECTION -->
+    <header class="hero-section">
+      <div class="hero-content">
+        <div class="header-badge fade-in">18 • JULIO</div>
+        <h1 class="hero-title fade-in">Cumpleaños de Fiorella Díaz</h1>
+        <p class="hero-subtitle fade-in">Te invitamos a celebrar una ocasión muy especial</p>
+        
+        <!-- Countdown Container -->
+        <div class="countdown-wrapper fade-in">
+          <div class="countdown-label">FALTAN SOLO:</div>
+          <div id="countdown" class="countdown-container">
+            <div class="countdown-box">
+              <span id="days" class="countdown-num">00</span>
+              <span class="countdown-tag">Días</span>
+            </div>
+            <div class="countdown-divider">:</div>
+            <div class="countdown-box">
+              <span id="hours" class="countdown-num">00</span>
+              <span class="countdown-tag">Horas</span>
+            </div>
+            <div class="countdown-divider">:</div>
+            <div class="countdown-box">
+              <span id="minutes" class="countdown-num">00</span>
+              <span class="countdown-tag">Mins</span>
+            </div>
+            <div class="countdown-divider">:</div>
+            <div class="countdown-box">
+              <span id="seconds" class="countdown-num">00</span>
+              <span class="countdown-tag">Segs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-indicator fade-in">
+        <span>Desliza para ver más</span>
+        <div class="arrow-down"></div>
+      </div>
+    </header>
+
+    <main class="content-wrapper">
+      
+      <!-- CARDS INFO SECTION -->
+      <section class="info-section">
+        <div class="section-title-wrapper">
+          <h2 class="section-title">Detalles del Evento</h2>
+          <div class="silver-divider"></div>
+        </div>
+
+        <div class="info-cards-grid">
+          <!-- Card Fecha -->
+          <div class="info-card">
+            <div class="card-icon-wrapper">
+              <span class="card-icon">📅</span>
+            </div>
+            <h3>Fecha</h3>
+            <p class="card-highlight">18 de Julio</p>
+            <p class="card-details">Sábado, desde las 20:00 hrs</p>
+          </div>
+
+          <!-- Card Ubicación -->
+          <div class="info-card">
+            <div class="card-icon-wrapper">
+              <span class="card-icon">📍</span>
+            </div>
+            <h3>Dirección</h3>
+            <p class="card-highlight">Guacolda 1866</p>
+            <p class="card-details">La Pintana, Santiago</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Guacolda+1866,+La+Pintana" target="_blank" rel="noopener noreferrer" class="maps-btn">
+              Ver en Google Maps
+            </a>
+          </div>
+
+          <!-- Card Vestimenta -->
+          <div class="info-card">
+            <div class="card-icon-wrapper">
+              <span class="card-icon">👔</span>
+            </div>
+            <h3>Vestimenta</h3>
+            <p class="card-highlight">Semi Formal</p>
+            <p class="card-details">Elegante y cómodo para celebrar</p>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- RSVP FORM SECTION -->
+      <section id="rsvp-section" class="rsvp-section">
+        <div class="section-title-wrapper">
+          <h2 class="section-title">Confirmar Asistencia</h2>
+          <p class="section-subtitle">Por favor, confirma antes del 10 de Julio para coordinar todo perfectamente.</p>
+          <div class="silver-divider"></div>
+        </div>
+
+        <!-- Confirmed Count Banner -->
+        <div class="counter-badge-container">
+          <div class="counter-badge">
+            <span class="counter-icon">👥</span>
+            <span id="confirmed-counter-text">Cargando confirmaciones...</span>
+          </div>
+        </div>
+
+        <!-- Form Container -->
+        <div class="form-container">
+          <form id="rsvp-form">
+            <!-- Nombre -->
+            <div class="form-group">
+              <label for="guest-name">Nombre y Apellido <span class="required">*</span></label>
+              <input type="text" id="guest-name" name="name" placeholder="Ej: Juan Pérez" required>
+            </div>
+
+            <!-- Asistencia -->
+            <div class="form-group">
+              <label>¿Asistirás al evento? <span class="required">*</span></label>
+              <div class="radio-selector">
+                <label class="radio-card">
+                  <input type="radio" name="attending" value="Sí" checked required>
+                  <span class="radio-design">
+                    <span class="radio-circle"></span>
+                    <span class="radio-label">Sí, asistiré 🎉</span>
+                  </span>
+                </label>
+                <label class="radio-card">
+                  <input type="radio" name="attending" value="No" required>
+                  <span class="radio-design">
+                    <span class="radio-circle"></span>
+                    <span class="radio-label">No podré ir 😔</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Dynamic Companions Section -->
+            <div id="companions-wrapper">
+              <!-- Acompañantes Cantidad -->
+              <div class="form-group">
+                <label>¿Cuántos acompañantes traes?</label>
+                <div class="segmented-selector">
+                  <button type="button" class="segment-btn active" data-value="0">0 (Solo yo)</button>
+                  <button type="button" class="segment-btn" data-value="1">1</button>
+                  <button type="button" class="segment-btn" data-value="2">2</button>
+                  <button type="button" class="segment-btn" data-value="3">3</button>
+                </div>
+                <input type="hidden" id="companions-count" name="companions" value="0">
+              </div>
+
+              <!-- Acompañantes Nombres -->
+              <div id="companion-names-group" class="form-group hidden">
+                <label for="companion-names">Nombres de acompañantes</label>
+                <input type="text" id="companion-names" name="companionNames" placeholder="Ej: María Gómez, Carlos Pérez">
+              </div>
+            </div>
+
+
+            <!-- Submit Button -->
+            <div class="form-actions">
+              <button type="submit" id="submit-btn" class="submit-btn">
+                <span class="btn-text">Confirmar asistencia</span>
+                <span class="loading-spinner hidden"></span>
+              </button>
+            </div>
+          </form>
+
+          <!-- Success Message Container -->
+          <div id="success-message" class="success-message-box hidden">
+            <div class="success-icon">✨</div>
+            <h3>¡Confirmación enviada!</h3>
+            <p>¡Gracias por confirmar tu asistencia! Nos vemos en la celebración 🎉</p>
+            <button id="reset-form-btn" class="secondary-btn">Enviar otra confirmación</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+      <p>Te esperamos con mucha alegría.</p>
+      <p class="credits">Diseñado con elegancia para Fiorella Díaz • 2026</p>
+    </footer>
+
+  </div>
+
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/rsvp.js"></script>
+</body>
+</html>
