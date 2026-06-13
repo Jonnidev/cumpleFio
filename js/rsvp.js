@@ -85,7 +85,7 @@ function initRSVPForm() {
   const companionsSelect = document.getElementById("companions-count");
   const segmentBtns = document.querySelectorAll(".segment-btn");
   const companionNamesGroup = document.getElementById("companion-names-group");
-  const companionNamesInput = document.getElementById("companion-names");
+  const companionInputsContainer = document.getElementById("companion-inputs-container");
   const resetBtn = document.getElementById("reset-form-btn");
 
   if (!form || !successBox || !submitBtn) return;
@@ -107,9 +107,8 @@ function initRSVPForm() {
       // Si dice que No va a asistir, ocultamos opciones de acompañantes
       companionsWrapper.classList.add("hidden");
       companionNamesGroup.classList.add("hidden");
-      companionNamesInput.required = false;
-      companionNamesInput.value = "";
       companionsSelect.value = "0";
+      companionInputsContainer.innerHTML = "";
       
       // Restablecer botones de segmentos a 0
       segmentBtns.forEach(b => {
@@ -122,14 +121,27 @@ function initRSVPForm() {
   // 2. Mostrar/Ocultar entrada de nombres según la cantidad de acompañantes
   function handleCompanionsChange() {
     const count = parseInt(companionsSelect.value) || 0;
+    companionInputsContainer.innerHTML = ""; // Limpiar inputs existentes
+    
     if (count > 0) {
       companionNamesGroup.classList.remove("hidden");
-      companionNamesInput.required = true;
-      companionNamesInput.placeholder = count === 1 ? "Ej: María Gómez" : "Ej: María Gómez, Carlos Pérez";
+      
+      // Generar un input independiente para cada acompañante
+      for (let i = 1; i <= count; i++) {
+        const inputWrapper = document.createElement("div");
+        inputWrapper.className = "companion-input-wrapper";
+        
+        const input = document.createElement("input");
+        input.type = "text";
+        input.className = "companion-name-input";
+        input.placeholder = `Nombre del acompañante ${i}`;
+        input.required = true;
+        
+        inputWrapper.appendChild(input);
+        companionInputsContainer.appendChild(inputWrapper);
+      }
     } else {
       companionNamesGroup.classList.add("hidden");
-      companionNamesInput.required = false;
-      companionNamesInput.value = "";
     }
   }
 
@@ -160,7 +172,18 @@ function initRSVPForm() {
       }
     }
     const companionsCount = attending === "Sí" ? parseInt(companionsSelect.value) : 0;
-    const companionNames = attending === "Sí" ? companionNamesInput.value.trim() : "";
+    
+    // Obtener y unir los nombres de los acompañantes desde los múltiples inputs
+    let companionNames = "";
+    if (attending === "Sí" && companionsCount > 0) {
+      const nameInputs = document.querySelectorAll(".companion-name-input");
+      const names = [];
+      nameInputs.forEach(input => {
+        const val = input.value.trim();
+        if (val !== "") names.push(val);
+      });
+      companionNames = names.join(", ");
+    }
 
     const payload = {
       name: guestName,

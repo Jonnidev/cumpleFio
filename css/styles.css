@@ -488,6 +488,7 @@ body {
 
 /* Controles de Entrada */
 input[type="text"],
+.companion-name-input,
 select,
 textarea {
   width: 100%;
@@ -503,17 +504,27 @@ textarea {
 }
 
 input[type="text"]::placeholder,
+.companion-name-input::placeholder,
 textarea::placeholder {
   color: rgba(255, 255, 255, 0.25);
 }
 
 input[type="text"]:focus,
+.companion-name-input:focus,
 select:focus,
 textarea:focus {
   outline: none;
   border-color: var(--blue-royal);
   background: rgba(255, 255, 255, 0.06);
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+}
+
+/* Contenedor de inputs dinámicos de acompañantes */
+.companion-inputs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
 }
 
 /* Segmented Selector (Alternativa elegante al select) */
