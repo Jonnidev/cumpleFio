@@ -5,7 +5,7 @@ const CONFIG = {
   // Pon aquí la URL que te da Google Apps Script al implementar como Aplicación Web.
   // Si se deja vacío (""), la página usará el simulador local (guardando en el navegador)
   // para que puedas probarla inmediatamente.
-  GOOGLE_SHEETS_URL: "",
+  GOOGLE_SHEETS_URL: "https://script.google.com/macros/s/AKfycbyHRYzsvahBrTb1l2Pkq3dBsZULs0FK-U7MWYU6YQRaWZAZqxcy-VxI3G5kTVBD-z2t/exec",
 
   // Fecha del evento para la cuenta regresiva (formato: YYYY-MM-DDTHH:mm:ss)
   EVENT_DATE: "2026-07-18T20:00:00",
