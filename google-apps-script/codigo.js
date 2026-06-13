@@ -6,7 +6,7 @@
  * 2. "No Asistentes": Guarda a los que confirmaron "No", registrando solo Nombre y Apellido.
  * 
  * Además, da formato automático a la hoja de cálculo (fuentes, alineación, colores,
- * tamaños de celda y autoajuste) para que la cumpleañera pueda revisarla cómodamente desde su móvil.
+ * tamaños de celda y autoajuste con flush) para que la cumpleañera pueda revisarla cómodamente desde su móvil.
  */
 
 function doGet(e) {
@@ -163,13 +163,16 @@ function formatTable(sheet, sheetName, isNewSheet) {
     }
   }
   
-  // 3. Habilitar cuadrícula y ajustar anchos de columnas
+  // 3. Habilitar cuadrícula
   sheet.setGridlines(true);
   
-  // Autoajustar las columnas al contenido
+  // 4. Forzar renderizado inmediato (flush) para que el autoajuste de columnas calcule el tamaño real
+  SpreadsheetApp.flush();
+  
+  // Autoajustar las columnas al contenido con un margen generoso
   for (var c = 1; c <= lastCol; c++) {
     sheet.autoResizeColumn(c);
     var width = sheet.getColumnWidth(c);
-    sheet.setColumnWidth(c, Math.max(width + 25, 150)); // Mínimo de 150px
+    sheet.setColumnWidth(c, Math.max(width + 35, 180)); // Margen de +35px y ancho mínimo de 180px
   }
 }
