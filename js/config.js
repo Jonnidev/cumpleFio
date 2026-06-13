@@ -8,7 +8,7 @@ const CONFIG = {
   GOOGLE_SHEETS_URL: "https://script.google.com/macros/s/AKfycbyHRYzsvahBrTb1l2Pkq3dBsZULs0FK-U7MWYU6YQRaWZAZqxcy-VxI3G5kTVBD-z2t/exec",
 
   // Fecha del evento para la cuenta regresiva (formato: YYYY-MM-DDTHH:mm:ss)
-  EVENT_DATE: "2026-07-18T20:00:00",
+  EVENT_DATE: "2026-07-18T18:30:00",
 
   // Datos del evento para el mapa y otros textos
   EVENT_ADDRESS: "Guacolda 1866, La Pintana",
