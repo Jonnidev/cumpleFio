@@ -66,10 +66,14 @@ function doPost(e) {
   var sheet = ss.getSheetByName(sheetName);
   var isNewSheet = false;
   
-  // Crear la hoja si no existe y configurar sus cabeceras
+  // Crear la hoja si no existe
   if (!sheet) {
     isNewSheet = true;
     sheet = ss.insertSheet(sheetName);
+  }
+  
+  // Escribir las cabeceras si la hoja está vacía (independiente de si es nueva o ya existía)
+  if (sheet.getLastRow() === 0) {
     if (sheetName === "Asistentes") {
       sheet.appendRow(["Nombre y Apellido", "¿Lleva Acompañantes?"]);
     } else {
@@ -83,7 +87,7 @@ function doPost(e) {
     try {
       ss.deleteSheet(defaultSheet);
     } catch(err) {
-      // Ignorar si no se puede borrar por ser la única hoja (no debería ocurrir)
+      // Ignorar si no se puede borrar
     }
   }
   
@@ -165,8 +169,7 @@ function formatTable(sheet, sheetName, isNewSheet) {
   // Autoajustar las columnas al contenido
   for (var c = 1; c <= lastCol; c++) {
     sheet.autoResizeColumn(c);
-    // Margen de espacio extra para que no quede muy pegado
     var width = sheet.getColumnWidth(c);
-    sheet.setColumnWidth(c, Math.max(width + 25, 150)); // Mínimo 150px para fácil lectura en móvil
+    sheet.setColumnWidth(c, Math.max(width + 25, 150)); // Mínimo de 150px
   }
 }
