@@ -11,8 +11,8 @@ const CONFIG = {
   EVENT_DATE: "2026-07-18T18:30:00",
 
   // Datos del evento para el mapa y otros textos
-  EVENT_ADDRESS: "Guacolda 1866, La Pintana",
-  EVENT_MAPS_URL: "https://www.google.com/maps/search/?api=1&query=Guacolda+1866,+La+Pintana",
+  EVENT_ADDRESS: "Guacolda 1865, La Pintana",
+  EVENT_MAPS_URL: "https://www.google.com/maps/search/?api=1&query=Guacolda+1865,+La+Pintana",
   
   // Clave usada para persistir en localStorage cuando no hay URL de Google Sheets activa
   LOCAL_STORAGE_KEY: "rsvp_guests_fiorella"
